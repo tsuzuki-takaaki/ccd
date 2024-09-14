@@ -1,0 +1,16 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    mysql2 (0.5.6)
+    open3 (0.2.1)
+
+PLATFORMS
+  arm64-darwin-23
+  ruby
+
+DEPENDENCIES
+  mysql2
+  open3
+
+BUNDLED WITH
+   2.5.16
