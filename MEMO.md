@@ -4,26 +4,9 @@
 
 ## コードリーディング
 
-`build`メソッド時点では、idが入っていないため`save`メソッドを見にいく
-
-- `build`
-
-```ruby
-app(dev)> show_source User.build
-
-From: /usr/local/bundle/gems/activerecord-7.2.0/lib/active_record/persistence.rb:82
-
-      def build(attributes = nil, &block)
-        if attributes.is_a?(Array)
-          attributes.collect { |attr| build(attr, &block) }
-        else
-          new(attributes, &block)
-        end
-      end
-```
-
 - `create`
   - これの戻り値のobjectにidが入る過程を見る必要がある
+  - `build`メソッド時点では、idが入っていないため`save`メソッドを見にいく
 
 ```ruby
 app(dev)> show_source User.create
@@ -159,7 +142,7 @@ def last_inserted_id(result)
 end
 ```
 
-というわけで、mysql2
+(※ postgresqlを使った場合は、INSERT処理の後にSELECTが走っていそう: <https://github.com/rails/rails/blob/87bee3640b2a135a360c9af13f0e610bef8df131/activerecord/lib/active_record/connection_adapters/postgresql/database_statements.rb#L203C11-L206C14>)
 
 ## mysql2
 
